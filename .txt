@@ -1,0 +1,138 @@
+                    ------------------------------------------------------------------
+                                        1. VARIÁVEIS E TIPOS 
+                    ------------------------------------------------------------------
+
+            Variáveis podem ter seu valor alterado ("ou variado") ao longo da execução do código. 
+            Ou seja, você pode atribuir um valor no inicio e depois em outro ponto você pode atribuir
+            um novo valor sem problemas. 
+
+
+
+                    ---------------------------------------------------------
+                                    COMO SE ESCREVE (SINTAXE)
+                    ---------------------------------------------------------
+        No Python, é muito simples. Você dá um nome, coloca o sinal de igual (=) e o valor.
+        Não precisa falar o tipo (int, string), o Python descobre sozinho!
+
+
+Exemplos Práticos:
+
+    1. TEXTO (String/str) -> Sempre entre aspas!
+        nome = "Felipe"
+        mensagem = 'Olá mundo'
+
+
+    2. NÚMERO INTEIRO (Integer/int) -> Sem aspas e sem vírgula.
+        idade = 20
+        quantidade = 5
+
+
+    3. NÚMERO DECIMAL (Float) -> Use PONTO, não vírgula!
+        preco = 19.99
+        altura = 1.75
+
+
+    4. BOOLEANO (Bool) -> Verdadeiro ou Falso (1ª letra Maiúscula).
+        tem_carteira = True
+        eh_maior_de_idade = False
+
+
+
+
+
+
+
+
+
+
+
+
+                                        1. Operadores Aritméticos
+                        No dia a dia do trabalho, você vai usar esses operadores para
+                        qualquer tipo de cálculo no sistema:desde calcular o valor 
+                        total de um carrinho de compras com desconto, até descobrir
+                        a média de notas de um aluno ou controlar o estoque de produtos.
+
+
+
+                            Operador       Descrição        Exemplo de Sintaxe
+
+
+                                +            Adição          total = preco + frete
+                                -           Subtração        desconto = total - 10
+                                *         Multiplicação      imposto = faturamento * 0.05
+                                /            Divisão         media = soma / 4
+                                //        Divisão Inteira    parcelas = 100 // 3
+                                %             Módulo         resto = 10 % 3
+                                **         Exponenciação     resultado = 2 ** 3
+
+
+
+
+
+
+                                           2. Operadores de Atribuição
+                        No dia a dia, eles servem para atualizar os valores das variáveis
+                        de forma rápida. Em vez de escrever o nome da variável duas vezes 
+                        para somar algo nela, você usa esses atalhos para economizar digitação.
+
+
+
+                            Operador       Descrição           Exemplo de Sintaxe
+                            
+                            
+                                =      Atribuição simples         idade = 18
+                                +=     Soma e atribui             pontos += 10
+                                -=     Subtrai e atribui          vida -= 1
+                                *=     Multiplica e atribui      salario *= 1.1
+
+
+
+
+
+                                    3. Operadores Relacionais (Comparação)
+                        São usados o tempo todo para tomadas de decisão nos sistemas
+                        (os famosos if e elif). No trabalho, você usa isso para checar se
+                         o usuário digitou a senha certa ou se o produto tem estoque.
+
+
+
+                            Operador       Descrição        Exemplo de Sintaxe
+                               ==	        Igual a	          opcao == "1"
+                               !=	      Diferente de        usuario != "admin"
+                                >	       Maior que	       preco > 100
+                                <	       Menor que	       estoque < 5
+                                >=	    Maior ou igual a	   idade >= 18
+                                <=	    Menor ou igual a	tentativas <= 3
+
+
+                                            4. Operadores Lógicos
+                        No trabalho, os sistemas raramente dependem de uma condição só.
+                        Eles servem para juntar várias perguntas na mesma linha. Por exemplo:
+                        "Para liberar o acesso, o usuário precisa ser admin E estar ativo".
+
+
+
+
+                            Operador               Descrição             Exemplo de Sintaxe
+                            and          E (tudo precisa ser True)       tem_carteira and eh_maior
+                            or            OU (pelo menos um True)        eh_estudante or eh_professor
+                            not            NÃO (inverte o valor)         not ativo
+
+
+
+
+
+                                               5. Operadores de Associação
+                        Esse é muito usado em Python para pesquisar coisas. No dia a dia, você usa
+                            para checar se um e-mail tem o símbolo @ ou se o nome de um usuário 
+                                          está dentro de uma lista de bloqueados.
+
+
+                            Operador          Descrição                Exemplo de Sintaxe
+                               in           Está dentro de          "Python" in lista_cursos
+                             not in       Não está dentro de      "admin" not in lista_nomes
+
+
+
+

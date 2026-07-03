@@ -39,6 +39,7 @@ print("""\n=== ESCOLHA O TEMA ===
 
 
 
+
 texto1 = """
                     ------------------------------------------------------------------
                                         1. VARIÁVEIS E TIPOS 
@@ -297,39 +298,39 @@ Objetivo: Repetir um bloco de código várias vezes sem precisar reescrever as
 mesmas linhas de comando.
 
 A) LOOP FOR (O Inspetor)
-   Usado quando sabemos o limite ou quantas vezes queremos repetir. É perfeito 
-   para percorrer sequências (listas, strings, dicionários). Ele para sozinho.
+    Usado quando sabemos o limite ou quantas vezes queremos repetir. É perfeito 
+    para percorrer sequências (listas, strings, dicionários). Ele para sozinho.
 
    * Jeito 1 (Percorrer Lista):
-     mochila = ["faca", "corda", "lanterna"]
-     for item in mochila:
-         print(f"Você está carregando: {item}")
+    mochila = ["faca", "corda", "lanterna"]
+    for item in mochila:
+        print(f"Você está carregando: {item}")
 
    * Jeito 2 (Repetir X vezes com range):
-     for numero in range(3):
-         print("Atirando!")
+    for numero in range(3):
+        print("Atirando!")
 
    * Jeito 3 (For Duplo em Dicionários com .items()):
-     # Força o Python a ler tanto a chave quanto o valor simultaneamente
-     for chave, valor in agentes.items():
-         print(f"Agente: {chave} | Nível: {valor}")
+    # Força o Python a ler tanto a chave quanto o valor simultaneamente
+    for chave, valor in agentes.items():
+        print(f"Agente: {chave} | Nível: {valor}")
 
 
 B) LOOP WHILE (O Motor)
-   Usado quando não sabemos exatamente quantas vezes o loop vai rodar. Ele continua 
-   executando enquanto a condição permanecer verdadeira.
+    Usado quando não sabemos exatamente quantas vezes o loop vai rodar. Ele continua 
+    executando enquanto a condição permanecer verdadeira.
 
    * 1. While Condicional (Para sozinho quando a condição muda):
-     municao = 3
-     while municao > 0:
-         print("Atirando!")
-         municao -= 1 # Diminui a munição até a condição virar False
+    municao = 3
+    while municao > 0:
+        print("Atirando!")
+        municao -= 1 # Diminui a munição até a condição virar False
 
    * 2. While True (Loop infinito, exige parada manual):
-     while True:
-         opcao = input("Digite 1 para sair: ")
-         if opcao == "1":
-             break # Destrói o loop imediatamente
+    while True:
+        opcao = input("Digite 1 para sair: ")
+        if opcao == "1":
+            break # Destrói o loop imediatamente
 
 
 💡 SOBRE O 'DO WHILE' EM PYTHON:
@@ -341,7 +342,107 @@ um 'if' e 'break' na última linha do bloco.
 
 
 
-lista_temas = [texto1, texto2, texto3, texto4]
+
+texto5 = """
+
+[1] LISTAS [] -> A Caixa Aberta (Mutável)
+-----------------------------------------------------------------------------
+Guarda várias variáveis juntas em uma única sequência. Você pode adicionar, 
+remover ou alterar qualquer item a qualquer momento. A contagem das posições
+sempre começa no número 0.
+
+
+Formas Rápidas de Acessar os Dados:
+    minha_lista[-1]      -> Pega o último elemento sem precisar saber o tamanho.
+    matriz[0][0]         -> Acessa uma lista dentro de outra (Linha e Coluna).
+    minha_lista[::-1]    -> Inverte a ordem de todos os elementos da lista na hora.
+
+
+Como Percorrer e Criar Listas de Forma Inteligente:
+  * Usando o Laço 'For' com Enumerate:
+    for i, v in enumerate(lista): -> Pega a posição (i) e o valor (v) juntos.
+    Uso real: Serve para criar rankings, exibir históricos ou numerar linhas na tela.
+
+
+  * Usando 'List Comprehension' (Atalho de 1 linha):
+    [n for n in num if n % 2 == 0] -> Filtra e cria listas de forma ultra rápida.
+    Uso real: Serve para limpar ou filtrar dados de bancos de dados (ex: ver só compras negativadas).
+
+
+Sintaxe e Métodos Principais:
+    minha_lista = ["Python", "C#", "Java"]
+    len(minha_lista)     -> Retorna a quantidade de elementos salvos na lista.
+    .append("JavaScript")-> Adiciona um item novo no final da lista.
+    .extend(outra_lista) -> Funde uma segunda lista no final da atual.
+    sorted(minha_lista)  -> Cria uma cópia nova da lista totalmente ordenada.
+    .pop(0)              -> Remove o item da posição indicada (índice).
+    .remove("Java")      -> Remove a primeira ocorrência desse valor específico.
+    .count("Python")     -> Conta quantas vezes o valor aparece na lista.
+    .index("C#")         -> Retorna a posição onde o valor aparece primeiro.
+    .sort()              -> Organiza a lista original diretamente na memória.
+
+
+
+[2] TUPLAS () -> A Caixa Lacrada (Imutável)
+-----------------------------------------------------------------------------
+Igual à lista, mas com informações FIXAS. Depois que você cria uma tupla, o 
+Python tranca ela. É excelente para dar segurança ao código (ex: guardar as 
+configurações do sistema, endereços de IP fixos ou os meses do ano).
+
+
+Regra de Ouro:
+    Para criar uma tupla de 1 item só, você PRECISA colocar uma vírgula no final,
+    senão o Python acha que é um texto comum.
+    X meu_ip = ("192.168.0.1")   -> Vira uma String comum.
+    ✔ meu_ip = ("192.168.0.1",)  -> Vira uma Tupla blindada.
+
+
+Sintaxe e Métodos Principais:
+    minha_tupla = ("Janeiro", "Fevereiro", "Março")
+    .count("Janeiro")    -> Conta as ocorrências do item dentro do cofre.
+    .index("Março")      -> Mostra a posição do item na sequência.
+
+
+
+[3] CONJUNTOS {} -> O Saco Mágico Sem Fundo (Set)
+-----------------------------------------------------------------------------
+Uma estrutura que não aceita itens repetidos e não possui nenhuma ordem. É 
+perfeita para limpar dados duplicados e cruzar listas grandes. Como não tem
+ordem fixa, ela não possui índices (para acessar posições, use list(meu_set)).
+
+
+Sintaxe e Métodos Principais:
+    meu_set = {"Python", "C#", "C#"} -> Vira apenas {"Python", "C#"}
+    "Python" in meu_set  -> Retorna True/False com uma busca ultrarrápida.
+    .add("Java")         -> Adiciona um item (ignora se o item já existir).
+    .discard("PHP")      -> Remove um item com segurança (sem quebrar o código).
+    .intersection(set2)  -> Mostra apenas os elementos que existem nos dois sets.
+    .difference(set2)    -> Mostra o que tem no primeiro set que não tem no outro.
+    .union(set2)         -> Junta os dois conjuntos eliminando os repetidos.
+
+
+
+[4] DICIONÁRIOS {} -> O Fichário Inteligente (Dict)
+-----------------------------------------------------------------------------
+Não usa posições numéricas como [0] ou [1]. Ele funciona guardando dados em
+pares de Chave e Valor. A Chave é a etiqueta única e imutável (ex: texto) 
+e o Valor é o conteúdo real, que pode ser qualquer tipo de dado.
+
+
+Sintaxe e Métodos Principais:
+    meu_dict = {"nome": "Felipe", "cargo": "Estagiário Back-End"} [cite: Source: Gemini Chat. Evidence: Direct self-declaration of name during a resume-building discussion. Date: 2025-09 to 2025-10., Source: Gemini Chat. Evidence: Repeated declarations of a professional objective to secure an internship in back-end development and ongoing study of Python and C#. Date: 2025-09 to 2026-05.]
+    meu_dict["linguagem"] = "Python" -> Cria ou altera um valor usando a chave.
+    .get("idade", "Não informado")   -> Busca a chave sem quebrar o código se sumir.
+    .keys()              -> Retorna uma lista com todas as chaves (etiquetas).
+    .values()            -> Retorna uma lista com todos os valores salvos.
+    .items()             -> Retorna o par completo. Perfeito para usar no for:
+                        for chave, valor in meu_dict.items():
+"""
+
+
+
+
+lista_temas = [texto1, texto2, texto3, texto4, texto5]
 
 
 
@@ -372,3 +473,4 @@ while True:
 
     elif opcao == "5":
         meu_objeto = caderno("CURSO DE LOGÍCA DE PROGRAMAÇÃO (by Felipe)", "tema: Estruturas de Dados", lista_temas [4])
+        meu_objeto.exibir_caderno()

@@ -1,16 +1,20 @@
-class caderno:
-    def __init__(self, Titulo, Categoria, Conteudo):
-        
+class caderno: # Definição da classe 
+    def __init__(self, Titulo, Categoria, Conteudo):  
+        # método construtor definindo os parâmetros 
+
+
+        # atributos da instância
         self.Titulo = Titulo
         self.Categoria = Categoria
         self.Conteudo = Conteudo    
 
 
 
-    def exibir_caderno(self):
+    def exibir_caderno(self): 
+        # Método que exibi os atributos
 
-
-        print(f"""
+        # Exibição estruturada utilizando f-strings
+        print(f""" 
                     ==================================================================
                                 {self.Titulo}
                     ==================================================================""")
@@ -22,7 +26,7 @@ class caderno:
         print(f"""{self.Conteudo}""")
 
 
-
+# criando o menu
 print("""\n=== ESCOLHA O TEMA ===
 
 
@@ -39,7 +43,7 @@ print("""\n=== ESCOLHA O TEMA ===
 
 
 
-
+# criando as variaveis de cada tema 
 texto1 = """
                     ------------------------------------------------------------------
                                         1. VARIÁVEIS E TIPOS 
@@ -441,11 +445,11 @@ Sintaxe e Métodos Principais:
 
 
 
-
+# criando a lista que vai guardar os temas 
 lista_temas = [texto1, texto2, texto3, texto4, texto5]
 
 
-
+# looping de repetição do menu
 while True:
 
     opcao = input("Digite o número do tema que quer estudar: ")

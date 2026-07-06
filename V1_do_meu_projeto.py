@@ -434,7 +434,7 @@ e o Valor é o conteúdo real, que pode ser qualquer tipo de dado.
 
 
 Sintaxe e Métodos Principais:
-    meu_dict = {"nome": "Felipe", "cargo": "Estagiário Back-End"} [cite: Source: Gemini Chat. Evidence: Direct self-declaration of name during a resume-building discussion. Date: 2025-09 to 2025-10., Source: Gemini Chat. Evidence: Repeated declarations of a professional objective to secure an internship in back-end development and ongoing study of Python and C#. Date: 2025-09 to 2026-05.]
+    meu_dict = {"nome": "Felipe", "cargo": "Estagiário Back-End"} 
     meu_dict["linguagem"] = "Python" -> Cria ou altera um valor usando a chave.
     .get("idade", "Não informado")   -> Busca a chave sem quebrar o código se sumir.
     .keys()              -> Retorna uma lista com todas as chaves (etiquetas).

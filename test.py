@@ -1,26 +1,106 @@
+"""
+Para rodar: streamlit run test.py
+"""
+
 import streamlit as st
 
-# Título centralizado no alto usando markdown e HTML básico
-st.markdown("<h1 style='text-align: center;'>Caderno Digital 📔</h1>", unsafe_allow_html=True)
+# -- CONFIGURAÇÃO DA PÁGINA --
+st.set_page_config(
+    page_title="Caderno Digital",
+    page_icon="🐍",
+    layout="centered",
+    initial_sidebar_state="expanded",
+)
 
-# Espaçamento simples para os botões não ficarem colados no topo
-st.write("")
-st.write("")
+# Lista de categorias com a Home inclusa
+CATEGORIAS = [
+    "🏠 Home",
+    "Fundamentos e Tipos de Dados",
+    "Operadores",
+    "Manipulação de Strings",
+    "Estruturas de Controle",
+    "Estruturas de Dados",
+    "Sintaxe"
+]
 
-# Criando as 5 colunas para os botões horizontais
-col1, col2, col3, col4, col5 = st.columns(5)
+# -- SIDEBAR (MENU LATERAL) --
+with st.sidebar:
+    st.header("📌 Temas")
+    pagina = st.radio(
+        "",
+        options=CATEGORIAS,
+        label_visibility="collapsed"
+    )
+    st.divider()
 
-with col1:
-    st.button("Fundamentos")
 
-with col2:
-    st.button("Operadores")
+# -- ROTEAMENTO DE CONTEÚDO (MOTOR BACK-END) --
 
-with col3:
-    st.button("Strings")
+if pagina == "🏠 Home":
+    # Cabeçalho único e imponente para a tela inicial
+    st.title("Central de Estudos Back-End 📓✏️")
+    st.divider()
+    
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.write("Selecione um dos módulos na barra lateral.")
+    st.divider()
+    
+    # Sistema de colunas para centralizar o logotipo do Python
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.image("https://www.python.org/static/community_logos/python-logo-generic.svg", width=180)
 
-with col4:
-    st.button("Controle")
+elif pagina == "Fundamentos e Tipos de Dados":
+    st.title("🧱 Fundamentos e Tipos de Dados")
+    st.caption("Caderno Digital Python")
+    st.divider()
+    st.write("Aqui você vai colocar suas anotações sobre int, float, str, bool e variáveis.")
 
-with col5:
-    st.button("Estruturas")
+elif pagina == "Operadores":
+    st.title("🧮 Operadores")
+    st.caption("Caderno Digital Python")
+    st.divider()
+    st.write("Aqui vão as explicações sobre operadores aritméticos (+, -, *, /) e lógicos (and, or, not).")
+
+elif pagina == "Manipulação de Strings":
+    st.title("🔤 Manipulação de Strings")
+    st.caption("Caderno Digital Python")
+    st.divider()
+    st.write("Conteúdo focado em métodos de strings, f-strings, fatiamento e concatenação.")
+
+elif pagina == "Estruturas de Controle":
+    st.title("🎛️ Estruturas de Controle")
+    st.caption("Caderno Digital Python")
+    st.divider()
+    st.write("Área dedicada aos conceitos de condicionais (if, elif, else) e laços de repetição (for, while).")
+
+elif pagina == "Estruturas de Dados":
+    st.title("📦 Estruturas de Dados")
+    st.caption("Caderno Digital Python")
+    st.divider()
+    st.write("Espaço para documentar o uso de listas, tuplas, dicionários e conjuntos (sets).")
+
+elif pagina == "Sintaxe":
+    st.title("✍️ Sintaxe")
+    st.caption("Caderno Digital Python")
+    st.divider()
+    st.write("Regras gerais de escrita de código limpo, indentação e boas práticas em Python.")
+
+
+
+
+
+2. NÚMERO INTEIRO (Integer/int) -> Sem aspas e sem vírgula.
+        idade = 20
+        quantidade = 5
+
+
+3. NÚMERO DECIMAL (Float) -> Use PONTO, não vírgula!
+        preco = 19.99
+        altura = 1.75
+
+
+    4. BOOLEANO (Bool) -> Verdadeiro ou Falso (1ª letra Maiúscula).
+        tem_carteira = True
+        eh_maior_de_idade = False

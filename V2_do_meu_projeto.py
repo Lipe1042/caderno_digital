@@ -4,9 +4,9 @@ Para rodar: streamlit run V1_do_meu_projeto.py
 import streamlit as st
 
 
-class caderno: # Definição da classe 
+class caderno: 
     def __init__(self, Titulo, Categoria, Conteudo):  
-        # método construtor definindo os parâmetros 
+
 
 
         # atributos da instância
@@ -22,7 +22,6 @@ class caderno: # Definição da classe
 
 
 
-# criando as variaveis de cada tema 
 texto1 = """
 
 
@@ -436,7 +435,7 @@ st.set_page_config(
 
 
 
-# Lista de categorias com a Home inclusa
+
 CATEGORIAS = [
     "🏠 Home",
     "Fundamentos e Tipos de Dados",
@@ -458,7 +457,7 @@ with st.sidebar:
 
 
 
-# ROTEAMENTO DE CONTEÚDO (Onde o seu front antigo encontra seu Back-End)
+
 if pagina == "🏠 Home":
     st.title("Central de Estudos Back-End 📓✏️")
     st.divider()
@@ -475,7 +474,7 @@ if pagina == "🏠 Home":
 elif pagina == "Fundamentos e Tipos de Dados":
     st.title("💻 Fundamentos e Tipos de Dados")
 
-    # Chamando seu Back-End para renderizar o texto real das aspas triplas!
+
     meu_objeto = caderno("CURSO DE LÓGICA DE PROGRAMAÇÃO (by Felipe)", "tema: Fundamentos e Tipos de Dados", lista_temas[0])
     meu_objeto.exibir_caderno()
 
@@ -483,33 +482,30 @@ elif pagina == "Fundamentos e Tipos de Dados":
 elif pagina == "Operadores":
     st.title("🔢 Operadores")
     st.divider()
-    
+
     meu_objeto = caderno("CURSO DE LÓGICA DE PROGRAMAÇÃO (by Felipe)", "tema: Operadores", lista_temas[1])
     meu_objeto.exibir_caderno()
 
 
 elif pagina == "Manipulação de Strings":
     st.title("🔤 Manipulação de Strings")
-
     st.divider()
-    
+
     meu_objeto = caderno("CURSO DE LÓGICA DE PROGRAMAÇÃO (by Felipe)", "tema: Manipulação de Strings", lista_temas[2])
     meu_objeto.exibir_caderno()
 
 
 elif pagina == "Estruturas de Controle":
     st.title("⚙️ Estruturas de Controle")
-    
     st.divider()
-    
+
     meu_objeto = caderno("CURSO DE LÓGICA DE PROGRAMAÇÃO (by Felipe)", "tema: Estruturas de Controle", lista_temas[3])
     meu_objeto.exibir_caderno()
 
 
 elif pagina == "Estruturas de Dados":
     st.title("📦 Estruturas de Dados")
-    
     st.divider()
-    
+
     meu_objeto = caderno("CURSO DE LÓGICA DE PROGRAMAÇÃO (by Felipe)", "tema: Estruturas de Dados", lista_temas[4])
     meu_objeto.exibir_caderno()

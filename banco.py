@@ -1,6 +1,6 @@
 import sqlite3
 
-conexao = sqlite3.connect("banco.db")
+conexao = sqlite3.connect("banco.db", check_same_thread=False)
 cursor = conexao.cursor()
 
 
@@ -22,6 +22,7 @@ def salvar_anotacao(titulo, conteudo):
                 VALUES (?, ?)""", (titulo, conteudo))
         conexao.commit()
 
+
 def listar_anotacoes():
         cursor.execute("""SELECT * FROM anotacoes""")
 
@@ -29,3 +30,7 @@ def listar_anotacoes():
         return textos
         
 
+
+def deletar_anotacao(id_nota):
+        cursor.execute("DELETE FROM anotacoes WHERE id = ?", (id_nota,))
+        conexao.commit()

@@ -1,7 +1,10 @@
 """
-Para rodar: streamlit run V1_do_meu_projeto.py
+Para rodar: streamlit run V3_do_meu_projeto.py
 """
 import streamlit as st
+import banco
+banco.criar_tabela()
+
 
 
 class caderno: 
@@ -435,9 +438,9 @@ st.set_page_config(
 
 
 
-
 CATEGORIAS = [
     "🏠 Home",
+    "📝 Gerenciar Anotações",
     "Fundamentos e Tipos de Dados",
     "Operadores",
     "Manipulação de Strings",
@@ -446,14 +449,16 @@ CATEGORIAS = [
 
 
 
-# Navegação lateral com os temas disponíveis
 with st.sidebar:
     st.header("📌 Temas")
     pagina = st.radio(
-        "",
+        "Menu",  # Coloquei "Menu" aqui para sumir com aquele aviso amarelo do terminal
         options=CATEGORIAS,
-        label_visibility="collapsed")
-    st.divider()
+        label_visibility="collapsed"
+    )
+    
+    # st.divider() apagado daqui!
+
 
 
 
@@ -469,6 +474,40 @@ if pagina == "🏠 Home":
     col1, col2, col3, = st.columns([1, 2, 1])
     with col2:
         st.image("https://www.python.org/static/community_logos/python-logo-generic.svg", width=180)
+
+
+elif pagina == "📝 Gerenciar Anotações":
+    st.title("📝 Gerenciar Anotações")
+    st.divider()
+    
+    # --- BLOCO DE CRIAÇÃO ---
+    st.subheader("Adicionar Nova Anotação")
+    titulo_nota = st.text_input("Título da Anotação")
+    conteudo_nota = st.text_area("Escreva o conteúdo aqui...")
+
+    if st.button("Salvar no Banco"):
+        if titulo_nota and conteudo_nota:
+            banco.salvar_anotacao(titulo_nota, conteudo_nota)
+            st.success("Anotação salva com sucesso!")
+            st.rerun() # Atualiza a tela para a nota aparecer na lista abaixo
+        else:
+            st.warning("Preencha o título e o conteúdo antes de salvar.")
+            
+    st.divider()
+    
+    # --- BLOCO DE LISTAGEM E EXCLUSÃO ---
+    st.subheader("Anotações Salvas")
+    todas_notas = banco.listar_anotacoes()
+    
+    for nota in todas_notas:
+        # nota[0] = id | nota[1] = titulo | nota[2] = conteudo
+        with st.expander(f"📄 {nota[1]}"):
+            st.code(nota[2], language="python")
+            
+            # O botão precisa de uma 'key' única (o ID) para não dar erro no loop
+            if st.button("🗑️ Apagar", key=f"del_{nota[0]}"):
+                banco.deletar_anotacao(nota[0]) # Chama o Back-End passando o ID
+                st.rerun() # Atualiza a tela para a nota sumir
 
 
 elif pagina == "Fundamentos e Tipos de Dados":

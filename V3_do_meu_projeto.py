@@ -461,8 +461,6 @@ with st.sidebar:
 
 
 
-
-
 if pagina == "🏠 Home":
     st.title("Central de Estudos Back-End 📓✏️")
     st.divider()
@@ -480,7 +478,7 @@ elif pagina == "📝 Gerenciar Anotações":
     st.title("📝 Gerenciar Anotações")
     st.divider()
     
-    # --- BLOCO DE CRIAÇÃO ---
+    # Criação de notas
     st.subheader("Adicionar Nova Anotação")
     titulo_nota = st.text_input("Título da Anotação")
     conteudo_nota = st.text_area("Escreva o conteúdo aqui...")
@@ -489,25 +487,25 @@ elif pagina == "📝 Gerenciar Anotações":
         if titulo_nota and conteudo_nota:
             banco.salvar_anotacao(titulo_nota, conteudo_nota)
             st.success("Anotação salva com sucesso!")
-            st.rerun() # Atualiza a tela para a nota aparecer na lista abaixo
+            st.rerun()
         else:
             st.warning("Preencha o título e o conteúdo antes de salvar.")
             
     st.divider()
     
-    # --- BLOCO DE LISTAGEM E EXCLUSÃO ---
+    # Listagem e exclusão
     st.subheader("Anotações Salvas")
     todas_notas = banco.listar_anotacoes()
     
     for nota in todas_notas:
-        # nota[0] = id | nota[1] = titulo | nota[2] = conteudo
+        
         with st.expander(f"📄 {nota[1]}"):
             st.code(nota[2], language="python")
             
-            # O botão precisa de uma 'key' única (o ID) para não dar erro no loop
+            
             if st.button("🗑️ Apagar", key=f"del_{nota[0]}"):
-                banco.deletar_anotacao(nota[0]) # Chama o Back-End passando o ID
-                st.rerun() # Atualiza a tela para a nota sumir
+                banco.deletar_anotacao(nota[0]) 
+                st.rerun() 
 
 
 elif pagina == "Fundamentos e Tipos de Dados":
